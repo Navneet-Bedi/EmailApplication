@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title> Display </title>
+</head>
+<body>
+<h:form>
+<textarea cols="100" rows="20" readonly="true" align="left" >
+Sender:<h:outputText value="#{emailClientBean.c.from}"/>
+Subject:<h:outputText value="#{emailClientBean.c.subject}"/>
+Content:<h:outputText value="#{emailClientBean.c.content}"/>
+</textarea>
+	   <br/>
+		<h:commandButton action="mailbox.xhtml" value="Back"/>
+</h:form>
+</body>
+</html>
+
+

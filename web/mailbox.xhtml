@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Check Mail</title>
+</head>
+<body>
+  <h:form>
+      <h:dataTable border="1" value="#{emailClientBean.mails}" var="check">
+        <h:column >
+         <h:selectBooleanCheckbox value="#{check.b}"/>
+        </h:column>
+        <h:column >
+          <f:facet name="header">
+            <h:outputText value="From"/>
+           </f:facet>
+	  <h:commandLink id="fromsender" action="display.xhtml" actionListener="#{emailClientBean.display(check)}">
+            <h:outputText value="#{check.from}" />
+	</h:commandLink>
+        </h:column>
+	<h:column >
+          <f:facet name="header">
+            <h:outputText value="Subject"/>
+           </f:facet>
+            <h:outputText value="#{check.subject}" />
+        </h:column>
+	<h:column >
+          <f:facet name="header">
+            <h:outputText value="Date"/>
+           </f:facet>
+            <h:outputText value="#{check.date}" />
+        </h:column>
+      </h:dataTable>
+      <h:commandButton id="submit1" actionListener="#{emailClientBean.delete()}" action="#{emailClientBean.checkMail}" value="Delete"/>	
+      <h:commandButton id="mailbox_submit" action="welcome.xhtml" value="Back" />
+	<h:commandButton id="logout1" action="login.xhtml" actionListener="#{emailClientBean.logout()}" value="Logout"/>
+  </h:form>
+</body>
+</html>
